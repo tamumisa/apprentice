@@ -24,4 +24,3 @@ c = gets.to_i
 result = c*2
 printf ("2倍の数値です： %s",result)
 # 2倍の数値です：10
-# 2倍の数値です：10
