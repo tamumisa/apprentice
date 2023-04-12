@@ -2,22 +2,21 @@
 # 1. Hello World
 # "Hello World" と標準出力（画面）に出力する関数 hello を定義してください。
 
-# ▼インプット
+def hello
+    puts "Hello World"
+end
+hello()
 
-# 入力はありません。
+# 2. 挨拶
+# 名前を引数に受け取り、
+# 与えられた名前の挨拶メッセージを標準出力（画面）に出力する greeting という関数を書きなさい。
 
-# ▼アウトプット
+puts "名前を入力してください"
+name = gets
 
-# "Hello World" と出力してください。
+def greeting(name)
+    puts "おはよう#{name}！"
+end
+greeting(name)
 
-# ▼サンプル呼び出し
 
-# hello()
-# ▼サンプルアウトプット
-
-# Hello World
-# ▼回答例_Ruby
-
-# def hello
-# # 関数を完成させてください
-# end
