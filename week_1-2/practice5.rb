@@ -1,17 +1,20 @@
 # 100回 "こんにちは！" と出力する関数 hello を定義してください。
 
-def hello
-    # 関数を完成させてください
-end
+# def hello()
+#     100.times{
+#         puts("こんにちは")
+#     }
+# end
 
-hello()
+# hello()
 
 # 羊が1匹 羊が2匹 羊が3匹 ...と、n 回羊の数えを出力する関数 sheep を定義してください。
 
 def sheep(n)
-    # 関数を完成させてください
+    for num in 1..n do
+        puts "羊が#{num}匹"
+    end
 end
-
 sheep(3)
 
 # 1 から 100 までの足し算の結果を出力する関数 sum_1_100 を定義してください。
