@@ -30,12 +30,30 @@ class VendingMachine
         @name = name
     end
 
-    def press_manufacturer_name()
-        # インスタンス変数に保存されている名前を表示する
-        puts @name
 
+    # コインを入れることのできるdeposit_coinメソッド
+    def deposit_coin(has_coin)
+        if has_coin == 100
+            @save_coin = has_coin
+        end
+        # puts "#{@save_coin}"
     end
+
+    def press_button()
+        if @save_coin == 100
+            return "cider"
+        end
+        return "100円が貯まっていないので空文字が出力されます"
+    end
+
+    # private
+    # def press_manufacturer_name()
+    #     return "#{@name}"
+    # end
 end
 
 vending_machine = VendingMachine.new('サントリー')
-puts vending_machine.press_manufacturer_name
+puts vending_machine.press_button
+
+vending_machine.deposit_coin(100)
+puts vending_machine.press_button
