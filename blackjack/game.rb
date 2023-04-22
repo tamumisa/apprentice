@@ -24,7 +24,7 @@ class Game
         puts "#{@dealer.name}の引いたカードは#{@dealer.cards[0].to_s}です"
         puts "ディーラーの引いた2枚目のカードはわかりません"
 
-        puts "#{@player.name}の現在の得点は#{@player.cards[0].to_s}です。カードを引きますか？"
+        puts "#{@player.name}の現在の得点は#{@player.cards[0].to_s}です。"
         @score.total(@player_score)
 
     end
