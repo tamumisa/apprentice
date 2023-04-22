@@ -4,6 +4,8 @@
 # [2-9] [10,J,Q,K]10点 [A]1or11 マーク s,h,c,d
 
 require_relative 'card'
+require_relative 'game'
+
 class Deck
     def initialize
     # カードを配る関数

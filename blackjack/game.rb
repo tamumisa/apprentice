@@ -5,7 +5,7 @@ require_relative 'player'
 class Game
     def initialize
         @deck = Deck.new
-        @Player = Player.new('あなた')
+        @player = Player.new('あなた')
     end
 
     def play
