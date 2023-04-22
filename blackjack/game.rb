@@ -1,7 +1,6 @@
 # Gameクラス
 require_relative 'deck'
 require_relative 'player'
-require_relative 'score'
 
 class Game
     attr_reader :player_score, :dealer_score
@@ -9,13 +8,11 @@ class Game
         @deck = Deck.new
         @player = Player.new('あなた')
         @dealer = Player.new('ディーラー')
-        @score = Score.new
     end
 
     def play
         puts "ブラックジャックを開始します"
         @player.draw(@deck,2)
-        puts  @player_score = @player.cards.map{|card| card.number}
 
         puts "#{@player.name}の引いたカードは#{@player.cards[0].to_s}です。"
         puts "#{@player.name}の引いたカードは#{@player.cards[1].to_s}です。"
@@ -25,7 +22,6 @@ class Game
         puts "ディーラーの引いた2枚目のカードはわかりません"
 
         puts "#{@player.name}の現在の得点は#{@player.cards[0].to_s}です。"
-        @score.total(@player_score)
 
     end
 end
