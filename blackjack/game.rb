@@ -1,14 +1,18 @@
 # Gameクラス
-class Game
+require_relative 'deck'
+require_relative 'player'
 
+class Game
     def initialize
         @deck = Deck.new
-        @Player = Player.new
+        @Player = Player.new('あなた')
     end
-    def puts "ブラックジャックを開始します"
-        @player.draw(@deck,2)
-        puts "あなたの引いたカードは#{@player.cards[0].to_s}です。"
-        puts "あなたの引いたカードは#{@player.cards[1].to_s}です。"
+
+    def play
+        puts "ブラックジャックを開始します"
+        # @player.draw(@deck,2)
+        # puts "あなたの引いたカードは#{@player.cards[0].to_s}です。"
+        # puts "あなたの引いたカードは#{@player.cards[1].to_s}です。"
 
     end
 end
