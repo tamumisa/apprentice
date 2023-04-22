@@ -14,8 +14,8 @@ class Game
 
     def play
         puts "ブラックジャックを開始します"
-        @player_score = @player.draw(@deck,2)
-        puts  @player_score
+        @player.draw(@deck,2)
+        puts  @player_score = @player.cards.map{|card| card.number}
 
         puts "#{@player.name}の引いたカードは#{@player.cards[0].to_s}です。"
         puts "#{@player.name}の引いたカードは#{@player.cards[1].to_s}です。"

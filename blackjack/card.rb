@@ -17,4 +17,17 @@ class Card
     def to_s
         "#{SUITS_JP[@suit]}の#{@number}"
     end
+    def score
+        if @number == "J" || @number == "Q" || @number == "K"
+            score = score + 10
+        elsif @number == "A"
+            if score >= 11
+                score = score + 1
+            else
+                score = score + 11
+            end
+        else
+            score = score + @number.to_i
+        end
+    end
 end
