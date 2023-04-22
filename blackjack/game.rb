@@ -11,6 +11,7 @@ class Game
     def play
         puts "ブラックジャックを開始します"
         @player.draw(@deck,2)
+        binding.break
         puts "あなたの引いたカードは#{@player.cards[0].to_s}です。"
         puts "あなたの引いたカードは#{@player.cards[1].to_s}です。"
 
