@@ -30,4 +30,9 @@ class Card
             score = score + @number.to_i
         end
     end
+
+    def judge
+        score 
+    end
+
 end
