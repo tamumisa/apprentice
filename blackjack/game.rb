@@ -6,8 +6,10 @@ class Game
         @Player = Player.new
     end
     def puts "ブラックジャックを開始します"
-        @player.draw(@deck)
+        @player.draw(@deck,2)
         puts "あなたの引いたカードは#{@player.cards[0].to_s}です。"
+        puts "あなたの引いたカードは#{@player.cards[1].to_s}です。"
+
     end
 end
 
