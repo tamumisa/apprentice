@@ -13,7 +13,8 @@ class Deck
         @cards = []
         Card::SUITS.each do |suit|
             Card::NUMBERS.each do |number|
-                @cards << Card.new(suit,number)
+                Card.new(suit,number)
+                @cards =
             end
         end
         # シャッフルする関数
