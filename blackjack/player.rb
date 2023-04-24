@@ -7,7 +7,6 @@ class Player
 
     def draw(card , number)
         # deckからnumber枚のカードを引く=単一責務の法則
-        puts card
-        @cards += draw(number)
+        @cards << draw(number)
     end
 end
