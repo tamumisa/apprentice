@@ -22,6 +22,11 @@ class Game
         puts "ディーラーの引いた2枚目のカードはわかりません"
 
         puts "#{@player.name}の現在の得点は#{@player.cards[0].to_s}です。"
+        puts "もう1枚カードを引きますか？(y/n)"
+        answer = gets.to_s
+        if answer == "y"
+            player.draw(@deck,2)
+        end
 
     end
 end
