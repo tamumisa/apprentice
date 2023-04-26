@@ -53,18 +53,33 @@
 # a.upcase
 # puts a
 
-def reverse_upcase(s)
-    s.reverse.upcase
-end
-def reverse_upcase!(s)
-    s.reverse!
-    s.upcase!
-    puts s
+# def reverse_upcase(s)
+#     s.reverse.upcase
+# end
+# def reverse_upcase!(s)
+#     s.reverse!
+#     s.upcase!
+#     puts s
+# end
+
+# s = 'ruby'
+# reverse_upcase(s)
+# puts s
+# reverse_upcase!(s)
+# puts s
+
+# エンドレスメソッド
+
+# 通常メソッドの定義
+
+def greet
+    'hello'
 end
 
-s = 'ruby'
-reverse_upcase(s)
-puts s
-reverse_upcase!(s)
-puts s
+# エンドレスメソッド定義(=に続けて処理や戻り値を書く)
 
+
+# def square(x) = x * x
+
+# puts greet
+# puts square(2)
