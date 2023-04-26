@@ -29,9 +29,9 @@
 # puts 1.even?
 # puts 2.even?
 #オブジェクトがnilであればtrue、そうでなければfalse
-puts nil.nil?
-puts 'abc'.nil?
-puts 1.nil?
+# puts nil.nil?
+# puts 'abc'.nil?
+# puts 1.nil?
 
 # ?で終わるメソッドは慣習として真偽値を返すメソッド
 # 3の倍数ならtrue,それ以外はfalse
@@ -47,8 +47,24 @@ puts 1.nil?
 # !で終わるメソッドよりも危険という意味を持ちます。Stringクラスにはupcaseとupcaesメソッドという2つのメソッドがあります。
 # どちらも文字列を大文字にするメソッドですが、upcase!メソッドは元の文字列を大文字に変更してしまいます。
 
-a = 'ruby'
-a.upcase!
-puts a
-a.upcase
-puts a
+# a = 'ruby'
+# a.upcase!
+# puts a
+# a.upcase
+# puts a
+
+def reverse_upcase(s)
+    s.reverse.upcase
+end
+def reverse_upcase!(s)
+    s.reverse!
+    s.upcase!
+    puts s
+end
+
+s = 'ruby'
+reverse_upcase(s)
+puts s
+reverse_upcase!(s)
+puts s
+
