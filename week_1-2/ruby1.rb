@@ -36,11 +36,19 @@ puts 1.nil?
 # ?で終わるメソッドは慣習として真偽値を返すメソッド
 # 3の倍数ならtrue,それ以外はfalse
 
-def multipie_of_three?(n)
-    n % 3 == 0
-end
-multipie_of_three?(4)
-multipie_of_three?(5)
-multipie_of_three?(6)
+# def multipie_of_three?(n)
+#     n % 3 == 0
+# end
+# multipie_of_three?(4)
+# multipie_of_three?(5)
+# multipie_of_three?(6)
 
 # !で終わるメソッドは慣習として「使用する際は注意が必要」という意味を持つ
+# !で終わるメソッドよりも危険という意味を持ちます。Stringクラスにはupcaseとupcaesメソッドという2つのメソッドがあります。
+# どちらも文字列を大文字にするメソッドですが、upcase!メソッドは元の文字列を大文字に変更してしまいます。
+
+a = 'ruby'
+a.upcase!
+puts a
+a.upcase
+puts a
