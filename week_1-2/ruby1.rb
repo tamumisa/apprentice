@@ -83,3 +83,37 @@ end
 
 # puts greet
 # puts square(2)
+
+# rubyのいろいろ
+# エイリアスメソッド→処理が全く同じメソッドに違う名前がついている 例：lengthとsize
+# rubyのif文やメソッド定義は文ではなく、指揮になっている。if文やメソッド定義が値を返す
+# if文が値を返すので変数に代入できる
+a =
+    if true
+        '真です'
+    else
+        '偽です'
+    end
+puts a
+puts a.object_id
+
+a = 1
+puts a.object_id
+
+# if文はif式　メソッド定義式　とよんだほうが実態に即している。
+# 式＝値を返し、結果を変数に代入できるものを式
+# 文＝値を返さず、変数に代入しようとすると構文エラーになるものが文
+
+# 疑似変数 変数と同じように値を読み出すことができるが、代入しようとするとエラーが発生する
+# nil true false self __FILE__ __LINE__ __ENCODING__
+
+# 標準ライブラリやgemを読み込むときは、require
+# 独人のクラス定義など読み込む場合は、require_relative 相対パスも必要!!
+
+# putsメソッドとprintメソッドは引数で渡されたオブジェクトに対し、to_sメソッドを呼び出して文字列に変換
+# p は「inspectメソッドを呼び出す」開発者向け！！！　ppはpを見やすく整形してくれる
+# putsやpはKernelモジュールに定義されているメソッド
+
+a = 'abc'.inspect
+p a
+# "\"abc\""
