@@ -4,8 +4,7 @@ class Deck
     attr_accessor :cards
 
     def initialize
-        @cards = []
-        @cards =
+        @cards =[
             {suit:'♠A',score:0},
             {suit:'♠2',score:2},
             {suit:'♠3',score:3},
@@ -58,17 +57,8 @@ class Deck
             {suit:'♥J',score:10},
             {suit:'♥Q',score:10},
             {suit:'♥K',score:10}
+        ]
         @cards.shuffle!
-    end
-
-    def take_out_card
-        @cards.first
-        puts @cards.first
-    end
-
-    def remove
-        @cards.shift
-        # puts @cards.length
     end
 end
 
