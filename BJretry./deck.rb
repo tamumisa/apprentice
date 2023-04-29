@@ -64,7 +64,7 @@ class Deck
     end
     def shuffle
         @cards.shuffle!
-        print @cards.length
+        # print @cards.length
     end
     def take_out_card
         @cards.first

@@ -13,7 +13,7 @@ class BlackJack
         puts "Welcome to BlackJack!"
         puts "Game Start!"
         deck.create_card
-        @deck.shuffle
+        deck.shuffle
         @player.first_plyer_turn(deck)
         # puts deck.cards[0][:suit]
     end
