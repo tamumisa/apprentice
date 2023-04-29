@@ -1,5 +1,4 @@
 require_relative "deck"
-require_relative "bj"
 
 class User
     attr_accessor :cards , :score, :role
