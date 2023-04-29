@@ -4,15 +4,15 @@ require_relative "user"
 class BlackJack
 
     def initialize
-        Deck.new
+        @deck = Deck.new
         @player = User.new
     end
 
     def play
         puts "Welcome to BlackJack!"
         puts "Game Start!"
-        puts @cards.length
-        # @player.first_plyer_turn
+        puts @deck.cards.length
+        @player.first_plyer_turn(@deck.cards)
         # puts deck.cards[0][:suit]
 
         # ②playerの1回目のスコアを計算するメソッドを呼び出す
