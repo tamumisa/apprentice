@@ -28,32 +28,42 @@ class VendingMachine
     def initialize(name)
         # インスタンス作成時に渡された名前をインスタンス変数に保存する
         @name = name
+        @save_coin = 0
     end
-
 
     # コインを入れることのできるdeposit_coinメソッド
     def deposit_coin(has_coin)
         if has_coin == 100
-            @save_coin = has_coin
+            @save_coin += has_coin
+        else
+            puts "a"
         end
-        # puts "#{@save_coin}"
     end
 
-    def press_button()
-        if @save_coin == 100
-            return "cider"
+    def press_button
+        if @save_coin >= 100
+            puts @save_coin
+            puts "cider"
+            @save_coin -= 100
+            puts  @save_coin
+        else
+            puts "b"
         end
-        return "100円が貯まっていないので空文字が出力されます"
     end
 
-    # private
-    # def press_manufacturer_name()
-    #     return "#{@name}"
-    # end
+    private
+    def press_manufacturer_name()
+        return @name
+    end
 end
 
 vending_machine = VendingMachine.new('サントリー')
-puts vending_machine.press_button
+vending_machine.press_button
+
+vending_machine.deposit_coin(150)
+vending_machine.press_button
 
 vending_machine.deposit_coin(100)
-puts vending_machine.press_button
+vending_machine.press_button
+
+puts vending_machine.press_manufacturer_name
