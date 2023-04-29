@@ -71,9 +71,9 @@ class Deck
         puts @cards.first
     end
 
-    def remove(card)
-        puts card
-        @cards.delete(card)
+    def remove
+        @cards.shift
+        puts @cards.length
     end
 end
 
