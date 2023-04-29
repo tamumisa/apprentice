@@ -1,4 +1,3 @@
-require_relative "bj"
 require_relative "user"
 
 class Deck
