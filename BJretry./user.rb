@@ -23,7 +23,16 @@ class User
     def first_plyer_turn(deck)
         puts "あなたのターンです"
         puts "カードを2枚引きます"
+        # ①draw_cardメソッドの処理を2回繰り返し、2枚のカードを引いた結果を表示する
         puts deck.cards[0][:suit]
-        puts "#{role}の引いたカードは#{deck.cards[0][:suit]}です"
     end
+
+    # 引いたカードを表示するメソッドを作成する
+    def present_a_card(deck)
+    puts "#{role}の引いたカードは#{deck.cards[0][:suit]}です"
+    end
+
+    # ③スコアを計算するメソッドを作成する
+
+    # スコアを表示するメソッドを作成する
 end
