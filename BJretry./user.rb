@@ -12,7 +12,7 @@ class User
     def draw_card(deck)
         user_card = deck.take_out_card
         @hand << user_card
-        # deck.remove(user_card)
+        deck.remove
     end
     # 引いたカードを表示するメソッドを作成する
     def present_a_card(deck)
