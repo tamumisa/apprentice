@@ -2,7 +2,6 @@ require_relative "deck"
 require_relative "user"
 
 class BlackJack
-    attr_accessor :deck , :player
 
     def initialize
         @deck = Deck.new
