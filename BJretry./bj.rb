@@ -18,6 +18,7 @@ class BlackJack
         # puts deck.cards[0][:suit]
 
         # ②playerの1回目のスコアを計算するメソッドを呼び出す
+        player.calc_score
 
         # ④dealerの1回目のターンを実行するメソッドを呼び出す
 

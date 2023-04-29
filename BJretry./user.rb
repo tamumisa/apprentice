@@ -29,9 +29,11 @@ class User
         end
     end
 
-
-
     # ③スコアを計算するメソッドを作成する
+    def calc_score
+        @score = @hand.sum{|card| card[:score]}
+        puts score
+    end
 
 
     # スコアを表示するメソッドを作成する
