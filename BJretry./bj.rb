@@ -1,12 +1,13 @@
 require_relative "deck"
 require_relative "user"
+require_relative "score"
 
 class BlackJack
 
     def initialize
         @deck = Deck.new
-        @player = User.new(@deck, "player")
-        @dealer = User.new(@deck, "dealer")
+        @player = User.new(@deck, "player" ,Score.new)
+        @dealer = User.new(@deck, "dealer" ,Score.new)
     end
 
     def play
@@ -38,16 +39,31 @@ class BlackJack
         end
 
         if @player.score > 21
+            puts @dealer.current_score
             puts "ディーラーの勝ちです"
             return
         end
 
         # dealerの2回目のターンを実行するメソッドを呼び出す
-        while @dealer.score <= 17
+        while @dealer.score <= 16
             @dealer.dealer_turn
         end
 
         # 結果発表
+        if @dealer.score > 21
+            puts "あなたの勝ちです"
+            return
+        end
+        if @player.score == @dealer.score
+            puts "引き分けです"
+            return
+        end
+        if @player.score > @dealer.score
+
+            puts "あなたの勝ちです"
+        else
+            puts "ディーラーの勝ちです"
+        end
 
 
         # ⑦yが入力された場合、playerにカードを1枚引かせる
