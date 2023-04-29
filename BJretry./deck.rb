@@ -63,19 +63,16 @@ class Deck
     end
     def shuffle
         @cards.shuffle!
+        print @cards
     end
     def take_out_card
-        @cards.last
-        puts @cards.last
+        @cards.first
+        puts @cards.first
     end
 
     def remove(card)
+        puts card
         @cards.delete(card)
     end
 end
 
-a = Deck.new
-a.create_card
-a.take_out_card
-a.remove(a.cards.last)
-puts a.cards.length
