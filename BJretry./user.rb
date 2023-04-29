@@ -10,6 +10,7 @@ class User
     end
 
     def draw_card(deck)
+        puts deck.first
         user_card = deck.take_out_card
         @hand << user_card
         deck.remove
