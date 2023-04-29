@@ -15,7 +15,6 @@ class BlackJack
         deck.create_card
         deck.shuffle
         @player.first_plyer_turn(deck)
-        @player.present_a_card(deck)
         # puts deck.cards[0][:suit]
 
         # ②playerの1回目のスコアを計算するメソッドを呼び出す
