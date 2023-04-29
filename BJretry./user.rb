@@ -6,13 +6,13 @@ class User
     def initialize
         @hand = []
         @score = 0
-        @role = "あなた"
     end
 
     def draw_card(deck)
         user_card = deck.take_out_card
-        hand << user_card
-        deck.remove(user_card)
+        puts user_card
+        # hand << user_card
+        # deck.remove(user_card)
     end
 
     # def present_a_card
@@ -20,9 +20,12 @@ class User
     # end
 
     def first_plyer_turn(deck)
-        2.times do
-            draw_card(deck)
-            puts "#{role}の引いたカードは#{deck[0][:suit]}です"
-        end
+        puts "あなたのターンです"
+        puts "カードを2枚引きます"
+        puts deck.cards[0][:suit]
+        # 2.times do
+        #     draw_card(deck)
+        #     puts "#{role}の引いたカードは#{deck[0][:suit]}です"
+        # end
     end
 end
