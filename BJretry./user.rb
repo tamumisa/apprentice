@@ -29,11 +29,28 @@ class User
         end
     end
 
+    def player_turn
+        drawed_card = draw_card
+        present_a_card(drawed_card)
+        calc_score(drawed_card)
+        current_score
+    end
+
     def first_dealer_turn
         puts "ディーラーのターンです"
-        present_a_card(draw_card)
-        draw_card
+        drawed_card1 = draw_card
+        present_a_card(drawed_card1)
+        calc_score(drawed_card1)
+        drawed_card2 = draw_card
+        calc_score(drawed_card2)
         puts "ディーラーの2枚目のカードは分かりません"
+    end
+
+    def dealer_turn
+        drawed_card = draw_card
+        present_a_card(drawed_card)
+        calc_score(drawed_card)
+        current_score
     end
 
     # ③スコアを計算するメソッドを作成する

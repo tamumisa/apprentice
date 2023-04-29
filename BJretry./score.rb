@@ -1,0 +1,3 @@
+class score
+    
+end
