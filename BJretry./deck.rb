@@ -68,12 +68,12 @@ class Deck
     end
     def take_out_card
         @cards.first
-        puts @cards.first
+        # puts @cards.first
     end
 
     def remove
         @cards.shift
-        puts @cards.length
+        # puts @cards.length
     end
 end
 
