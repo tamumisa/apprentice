@@ -2,11 +2,8 @@ require_relative "user"
 
 class Deck
     attr_accessor :cards
-    def initialize
-        @cards
-    end
 
-    def create_card
+    def initialize
         @cards = [
             {suit:'♠A',score:0},
             {suit:'♠2',score:2},
@@ -61,11 +58,9 @@ class Deck
             {suit:'♥Q',score:10},
             {suit:'♥K',score:10}
         ]
-    end
-    def shuffle
         @cards.shuffle!
-        # print @cards.length
     end
+
     def take_out_card
         @cards.first
         # puts @cards.first
