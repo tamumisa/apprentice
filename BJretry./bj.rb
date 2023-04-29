@@ -1,17 +1,21 @@
 require_relative "deck"
+require_relative "user"
 
 class BlackJack
-    def play
-        deck = Deck.new
+    attr_accessor :deck , :player
 
+    def initialize
+        @deck = Deck.new
+        @player = User.new
+    end
+
+    def play
         puts "Welcome to BlackJack!"
         puts "Game Start!"
         deck.create_card
-        deck.shuffle
-        deck.take_out_card
-        puts deck.cards[0][:suit]
-        deck.remove(deck.cards[0])
-        puts deck.cards.length
+        @deck.shuffle
+        @player.first_plyer_turn(deck)
+        # puts deck.cards[0][:suit]
     end
 end
 start = BlackJack.new

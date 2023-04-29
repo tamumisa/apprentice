@@ -1,3 +1,5 @@
+require_relative "bj"
+require_relative "user"
 
 class Deck
     attr_accessor :cards
@@ -63,7 +65,7 @@ class Deck
     end
     def shuffle
         @cards.shuffle!
-        print @cards
+        print @cards.length
     end
     def take_out_card
         @cards.first
