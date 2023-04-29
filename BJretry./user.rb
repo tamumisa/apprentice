@@ -3,9 +3,9 @@ require_relative "deck"
 class User
     attr_accessor :score
 
-    def initialize(deck, role)
+    def initialize(deck, role ,score)
         @hand = []
-        @score = 0
+        @score = score.score
         @role = role
         @cards = deck.cards
     end
@@ -55,6 +55,10 @@ class User
 
     # ③スコアを計算するメソッドを作成する
     def calc_score(drawed_card)
+        if drawed_card[:score] == 0
+            @score += @score > 11 ? 1 : 10
+            return
+        end
         @score += drawed_card[:score]
     end
 
