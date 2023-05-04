@@ -1,16 +1,16 @@
 ---
 name: Daily Report
 about: Daily Report Template
-title: ''
+title: '日報'
 labels: Report
 assignees: tamumisa
 
 ---
 
-# 月日日報
+# 5月4日日報
 
 ### **本日の目標（TODO目標/できるようになりたいこと）**
-- [ ] 
+- [ ] 動画視聴
 - [ ] 
 
 ### **学習時間（Hour）**
