@@ -1,7 +1,9 @@
 ---
 name: Daily Report
 about: Daily Report Template
+
 title: '5月4日日報'
+
 labels: Report
 assignees: tamumisa
 
@@ -10,6 +12,7 @@ assignees: tamumisa
 # 5月4日日報
 
 ### **本日の目標（TODO目標/できるようになりたいこと）**
+
 - [ ] week_3-4の課題を提出
 - [ ] githubのプルリクエストの流れを理解する
 
