@@ -5,10 +5,50 @@ Root権限を持つユーザーで MySQL へ接続してください。
 ## 1. ユーザーの作成
 
 MySQL のユーザーを作成してください。名前とパスワードは任意、ホストは localhost を指定してください。
+-
+- MySQLのユーザ一覧を確認。
+```
+mysql> SELECT  host, user FROM mysql.user;
++-----------+------------------+
+| host      | user             |
++-----------+------------------+
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | root             |
++-----------+------------------+
+4 rows in set (0.01 sec)
+```
+
+- ユーザーを作成
+`CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';`
+→怒られたので`Your password does not satisfy the current policy requirements`
+```
+mysql> SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password_check_user_name    | ON    |
+| validate_password_dictionary_file    |       |
+| validate_password_length             | 8     | 
+| validate_password_mixed_case_count   | 1     | 英字の文字数
+| validate_password_number_count       | 1     | 数字の文字数
+| validate_password_policy             | LOW   | パスワードポリシー
+| validate_password_special_char_count | 1     | 特殊文字の文字数
++--------------------------------------+-------+
+7 rows in set (0.03 sec)
+```
+- LOW:validate_password_lengthで設定した値以上の文字数。
+- MEDIUM:validate_password_lengthで設定した値以上の文字数。数字、大文字小文字、特殊文字が含まれている。
+- STRONG:validate_password_lengthで設定した値以上の文字数。
+数字、大文字小文字、特殊文字が含まれている。
+辞書ファイルを使用する場合辞書ファイルの単語と一致する文字列を含まない。
+
 
 ## 2. ユーザーの表示
 
 ユーザーを作成できたことを確認するために、ユーザーの一覧を表示してください。
+
 
 ## 3. ユーザーへの権限付与
 
