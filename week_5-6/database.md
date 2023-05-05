@@ -22,7 +22,8 @@ mysql> SELECT  host, user FROM mysql.user;
 
 - ユーザーを作成
 `CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';`
-- 怒られたので`Your password does not satisfy the current policy requirements`
+- 怒られたの`Your password does not satisfy the current policy requirements`
+
 ```
 mysql> SHOW VARIABLES LIKE 'validate_password%';
 +--------------------------------------+-------+
@@ -47,6 +48,26 @@ mysql> SHOW VARIABLES LIKE 'validate_password%';
 辞書ファイルを使用する場合辞書ファイルの単語と一致する文字列を含まない。
 (長さ、大文字・小文字、記号、辞書)
 
+
+
+```
+mysql> SHOW VARIABLES LIKE 'validate_password%';
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password_check_user_name    | ON    |
+| validate_password_dictionary_file    |       |
+| validate_password_length             | 8     |
+| validate_password_mixed_case_count   | 0     |
+| validate_password_number_count       | 0     |
+| validate_password_policy             | LOW   |
+| validate_password_special_char_count | 0     |
++--------------------------------------+-------+
+7 rows in set (0.01 sec)
+```
+**memo**
+`CREATE USER 'ユーザー名'@'ホスト名' IDENTIFIED BY 'パスワード';`
+
 ## 2. ユーザーの表示
 
 > ユーザーを作成できたことを確認するために、ユーザーの一覧を表示してください。
@@ -67,6 +88,7 @@ mysql> SELECT  host, user FROM mysql.user;
 +-----------+------------------+
 5 rows in set (0.00 sec)
 ```
+
 ## 3. ユーザーへの権限付与
 
 > 作成したユーザーに、MySQL 内のすべてのデータベースとテーブルへの root のフルアクセス権を付与してください。
@@ -87,6 +109,8 @@ mysql> show grants for tamumisa@localhost;
 - USAGE という権限は「何も権限がない」という権限😨
 - **つまり新しく作成したユーザーは、すべてのデータベースを対象に何も権限がない状態となっています。**
 
+[MySQLユーザ作成について](https://qiita.com/gatapon/items/92b942fa7081cfe17482)
+
 - 全データベースへのアクセス権を設定する
 ```
 mysql> grant create on *.* to tamumisa@localhost;
@@ -101,20 +125,56 @@ mysql> show grants for tamumisa@localhost;
 +-----------------------------------------------+
 1 row in set (0.00 sec)
 ```
-
--
-
+[MySQL でユーザに設定するパスワードのセキュリティレベルを下げる](https://yshystsj.com/2019/01/10/post-35/)
+[ユーザーに権限を設定する(GRANT文)](https://www.javadrive.jp/mysql/user/index6.html#section2)
+[GRANT ステートメント](https://dev.mysql.com/doc/refman/8.0/ja/grant.html#grant-overview)
+[ポリシーを変更](https://kiraba.jp/change-mysql57-password-policy/)
+[ポリシーを変更](https://qiita.com/keisukeYamagishi/items/d897e5c52fe9fd8d9273)
 
 ## 4. 権限のリロード
 
+[使用可能な権限のサマリー](https://dev.mysql.com/doc/refman/8.0/ja/privileges-provided.html)
+[MySQLでユーザを作成し、権限を設定する方法](https://proengineer.internous.co.jp/content/columnfeature/6638)
 ユーザーに権限を付与したら、すべての権限をリロードしてください。これにより設定が有効になります。
+```
+FLUSH PRIVILEGES;
+```
 
 ## 5. ユーザーの削除
 
-作成したユーザーを削除してください。削除後、削除できていることを確認してください。
+> 作成したユーザーを削除してください。削除後、削除できていることを確認してください。
+```
+DROP USER 'tamumisa'@'localhost';
+```
 
 ## 6. ユーザーの再作成
 
-再度ユーザーを作成、権限付与、権限のリロードを行ってください。
+> 再度ユーザーを作成、権限付与、権限のリロードを行ってください。
+> 今後は root ユーザーは基本的に使用せず、今回作成したユーザーを使用してください。
 
-今後は root ユーザーは基本的に使用せず、今回作成したユーザーを使用してください。
+```
+mysql> CREATE USER 'tamumisa'@'localhost' IDENTIFIED BY 'tamutamu';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for tamumisa@localhost;
++----------------------------------------------+
+| Grants for tamumisa@localhost                |
++----------------------------------------------+
+| GRANT USAGE ON *.* TO `tamumisa`@`localhost` |
++----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> grant create on *.* to tamumisa@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for tamumisa@localhost;
++-----------------------------------------------+
+| Grants for tamumisa@localhost                 |
++-----------------------------------------------+
+| GRANT CREATE ON *.* TO `tamumisa`@`localhost` |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+```
