@@ -30,7 +30,7 @@ mysql> SHOW VARIABLES LIKE 'validate_password%';
 +--------------------------------------+-------+
 | validate_password_check_user_name    | ON    |
 | validate_password_dictionary_file    |       |
-| validate_password_length             | 8     | 
+| validate_password_length             | 8     |
 | validate_password_mixed_case_count   | 1     | 英字の文字数
 | validate_password_number_count       | 1     | 数字の文字数
 | validate_password_policy             | LOW   | パスワードポリシー
@@ -39,15 +39,33 @@ mysql> SHOW VARIABLES LIKE 'validate_password%';
 7 rows in set (0.03 sec)
 ```
 - LOW:validate_password_lengthで設定した値以上の文字数。
+(長さ)
 - MEDIUM:validate_password_lengthで設定した値以上の文字数。数字、大文字小文字、特殊文字が含まれている。
+(長さ、大文字・小文字、記号)
 - STRONG:validate_password_lengthで設定した値以上の文字数。
 数字、大文字小文字、特殊文字が含まれている。
 辞書ファイルを使用する場合辞書ファイルの単語と一致する文字列を含まない。
-
+(長さ、大文字・小文字、記号、辞書)
 
 ## 2. ユーザーの表示
 
 ユーザーを作成できたことを確認するために、ユーザーの一覧を表示してください。
+```
+mysql> CREATE USER 'tamumisa'@'localhost' IDENTIFIED BY 'tamutamu';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT  host, user FROM mysql.user;
++-----------+------------------+
+| host      | user             |
++-----------+------------------+
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | root             |
+| localhost | tamumisa         |
++-----------+------------------+
+5 rows in set (0.00 sec)
+```
 
 
 ## 3. ユーザーへの権限付与
