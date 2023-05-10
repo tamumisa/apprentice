@@ -1,6 +1,6 @@
-SELECT  c.id キャンペーンID,
+SELECT  c.created_at 作成日,
+        c.id キャンペーンID,
         c.title キャンペーン名,
-        c.genre_id ジャンルID,
         i.instagram インスタグラムID,
         i.followers "フォロワー数",
         i.birth_date "IF誕生日",
