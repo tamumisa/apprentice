@@ -4,12 +4,12 @@ SELECT  c.created_at 作成日,
         i.instagram インスタグラムID,
         i.followers "フォロワー数",
         i.birth_date "IF誕生日",
-        i.prefecture "IF都道府県"
+        i.prefecture "IF都道府県",
         ci.post_id,
         ci.post_url,
         p.reach リーチ数,
         p.saved 保存数,
-        p.timestamp 投稿報告日時
+        p.timestamp 投稿報告日時,
         g.name "性別",
 FROM campaigns c
 LEFT JOIN campaign_influencers ci ON c.id = ci.campaign_id
