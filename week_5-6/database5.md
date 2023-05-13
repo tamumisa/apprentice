@@ -4,7 +4,7 @@
 
 従業員データ(employees テーブル)を10行のみ取得してください。
 
-```c
+```sql
 mysql> select * from employees LIMIT 10;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
@@ -26,7 +26,7 @@ mysql> select * from employees LIMIT 10;
 
 従業員のうち、女性のデータを10行分取得してください。
 
-```c
+```sql
 mysql> select * from employees where gender ="F" LIMIT 10;
 +--------+------------+------------+------------+--------+------------+
 | emp_no | birth_date | first_name | last_name  | gender | hire_date  |
@@ -48,7 +48,7 @@ mysql> select * from employees where gender ="F" LIMIT 10;
 ## 3. 等しくないデータの絞り込み
 
 従業員のうち、女性でないデータを10行分取得してください。その際、否定形の構文を使用してください。
-```c
+```sql
 mysql> select * from employees where gender !="F" LIMIT 10;
 +--------+------------+------------+-------------+--------+------------+
 | emp_no | birth_date | first_name | last_name   | gender | hire_date  |
@@ -72,7 +72,7 @@ mysql> select * from employees where gender !="F" LIMIT 10;
 従業員のうち、誕生日が1960年1月1日以降の人のデータを10行分取得してください。
 
 `まず、カラムの型を確認する`
-```c
+```sql
 mysql> show columns from employees;
 +------------+---------------+------+-----+---------+-------+
 | Field      | Type          | Null | Key | Default | Extra |
@@ -87,7 +87,7 @@ mysql> show columns from employees;
 6 rows in set (0.01 sec)
 ```
 
-```
+```sql
 mysql> select * from employees where birth_date >= '1960-01-01' LIMIT 10;
 +--------+------------+------------+-------------+--------+------------+
 | emp_no | birth_date | first_name | last_name   | gender | hire_date  |
@@ -110,7 +110,7 @@ mysql> select * from employees where birth_date >= '1960-01-01' LIMIT 10;
 
 従業員のうち、ファーストネームに vi が含まれる人のデータを10行分取得してください。
 
-```c
+```sql
 mysql> select * from employees where first_name LIKE '%vi%' LIMIT 10;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
@@ -133,7 +133,7 @@ mysql> select * from employees where first_name LIKE '%vi%' LIMIT 10;
 
 従業員のうち、誕生日が1960年1月1日から1960年1月31日までの人のデータを10行分取得してください。
 
-```c
+```sql
 mysql> select * from employees where birth_date BETWEEN '1960-01-01'AND '1960-01-31' LIMIT 10;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
@@ -156,7 +156,7 @@ mysql> select * from employees where birth_date BETWEEN '1960-01-01'AND '1960-01
 
 従業員のうち、ファーストネームが Mary で、かつ女性のデータを取得してください。
 
-```c
+```sql
 mysql> select * from employees where first_name LIKE 'Mary' and gender = 'F' LIMIT 10;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
@@ -179,7 +179,7 @@ mysql> select * from employees where first_name LIKE 'Mary' and gender = 'F' LIM
 
 従業員のうち、ファーストネームが Mary または ラストネームが Peck の人のデータを10行分取得してください。
 
-```c
+```sql
 mysql> select * from employees where first_name LIKE 'Mary' or last_name LIKE 'Peck' LIMIT 10;;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
@@ -202,7 +202,7 @@ mysql> select * from employees where first_name LIKE 'Mary' or last_name LIKE 'P
 
 従業員のうち、従業員番号が 10011, 10021, 10031 のいずれかに合致する人のデータを取得してください。なお、OR 演算子は使用しないでください。
 
-```c
+```sql
 mysql> select * from employees where emp_no IN (10011, 10021, 10031) LIMIT 10;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
@@ -218,7 +218,7 @@ mysql> select * from employees where emp_no IN (10011, 10021, 10031) LIMIT 10;
 
 従業員番号（emp_no）が20,000の人のファーストネームとラストネームを取得してください。
 
-```c
+```sql
 mysql> select first_name,last_name from employees where emp_no = 20000;
 +------------+-----------+
 | first_name | last_name |
