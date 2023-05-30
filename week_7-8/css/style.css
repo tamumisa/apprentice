@@ -81,3 +81,71 @@ header{
     padding:0 20px;
     color:white;
 }
+
+.lesson-wrapper{
+    height:500px;
+    padding-bottom:80px;
+    background-color:#f7f7f7;
+    text-align:center;
+}
+.heading{
+    padding-top:60px;
+    padding-bottom:30px;
+    color:#5f5d60;
+}
+.heading h2{
+    font-weight:normal;
+}
+.lessons{
+    float:left;
+    width:25%;
+}
+.lesson img{
+    width: 150px;
+}
+.lesson{
+    position: relative;
+}
+.lesson p{
+    position: absolute;
+    top:90px;
+    width:100%;
+    color:rgb(87,198,230);
+}
+.txt-contents{
+    width:80%;
+    display:inline-block;
+    margin-top:20px;
+    font-size:12px;
+    color:#b3aeb5;
+}
+.message-wrapper{
+    text-align: center;
+    padding-bottom:80px;
+}
+
+.message{
+    padding:15px 40px;
+    background-color: rgba(69,202,214,0.7);
+    cursor: pointer;
+    box-shadow: 3px 7px rgba(0,0,0,0.4);
+}
+.heading h3{
+    font-weight:normal;
+    color:#5f5d60;
+}
+.message:active{
+    box-shadow: none;
+    position: relative;
+    top:7px;
+}
+footer img{
+    width:125px;
+}
+footer p{
+    color:#b3aeb5;
+    font-size:12px;
+}
+footer{
+    padding-top:30px;
+}
