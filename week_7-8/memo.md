@@ -46,3 +46,22 @@
 - `<a>`タグをクリックできる範囲
   - `<a>`タグをブロック要素にすると、ボタン全体をクリックできる
 
+- imgタグとpタグを重ねて、画像の上に文字を表示させる
+  - `positon:absolute;`を使うと、要素同士を重ねて表示することができる。
+  - サイト全体の左上部分を基準とし、そこからの位置をtopとleftを用いて指定します。また、rightやbottomを併用することも可能です。
+- 立体的なボタンを作る
+  - ボックスに影をつけるためには、box-shadowプロパティを用いる
+    - `box-shadow`水平方向 垂直方向 色
+  - cursor text pointer default がある
+
+- ボタンを押したらへこむようにする
+  - :active セレクタにactiveを用いることで、要素がクリックされている間だけcssを適用することができる
+  - セレクタ:active 例：div:active
+  - .btn:active{
+    box-shadow:none;
+  }
+- headerを固定表示しよう
+  - position:fixed;
+    top:0px;
+    z-index:10;
+  - z-indexはpositionと併用する必要がある
