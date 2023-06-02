@@ -1,0 +1,51 @@
+ul{
+    list-style: none;
+    margin: 0px;
+    padding:60px 0px;
+    text-align:center;
+}
+li{
+    color: rgb(133,135,163);
+    height:80px;
+    line-height: 80px;
+    background-color: blue;
+}
+.li1{
+    background-color: #FF6BA8;
+}
+.li2{
+    background-color: rgb(255,140,106);
+}
+.li3{
+    background-color: rgb(255,203,107);
+}
+.li4{
+    background-color: rgb(239,109,192);
+}
+.flex-list{
+    /* 指定した要素の子要素を横並びにする */
+    display: flex;
+}
+.flex-list li{
+/* `flex:auto`は指定した要素の幅を親要素に合わせて伸縮させる */
+    flex: auto;
+}
+/* flex-wrap: wrapを指定すると、子要素のサイズに応じて折り返すことができます。 */
+@media (max-width:1000px) {
+    /* .flex-listにflex-wrapを指定してください */
+    .flex-list{
+    flex-wrap:wrap;
+    }
+    /* .flex-list li にwidthを50%に指定してください */
+    .flex-list li{
+    width:50%;
+    }
+}
+@media (max-width:670px){
+    .flex-list{
+        flex-direction: column;
+    }
+    .flex-list li{
+        margin: 0 auto;
+    }
+}
