@@ -33,7 +33,7 @@ body{
 }
 .navigation ul li{
     list-style: none;
-    display: :block;
+    display: block;
     position: relative;
     border-radius: 15px;
     /* background-color: #949B4B; */
